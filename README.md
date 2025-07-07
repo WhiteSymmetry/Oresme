@@ -69,9 +69,35 @@ pip install git+https://github.com/WhiteSymmetry/Oresme.git
 ## Kullanım (Türkçe) / Usage (English)
 
 ```python
-import oresme
+import oresme as ore 
 
-def main():
+# Example 1: Generate Oresme sequence
+print(ore.oresme_sequence(5))  # [0.5, 0.5, 0.375, 0.25, 0.15625]
+
+# Example 2: Get exact harmonic numbers as fractions
+print(ore.harmonic_numbers(3))  # [Fraction(1, 1), Fraction(3, 2), Fraction(11, 6)]
+
+# Example 3: Calculate single harmonic number
+print(ore.harmonic_number(5))  # 2.283333333333333
+
+# Example 4: Approximate large harmonic number
+print(ore.harmonic_number_approx(1_000_000))  # ≈14.392726722865724
+
+# Example 5: Use generator
+for i, h in enumerate(ore.harmonic_generator(3), 1):
+    print(f"H_{i} = {h}")
+
+# Example 6: NumPy vectorized version
+print(ore.harmonic_numbers_numpy(5))  # [1. 1.5 1.833... 2.083... 2.283...]
+
+[0.5, 0.5, 0.375, 0.25, 0.15625]
+[Fraction(1, 1), Fraction(3, 2), Fraction(11, 6)]
+2.283333333333333
+14.392726722865808
+H_1 = 1.0
+H_2 = 1.5
+H_3 = 1.8333333333333333
+[1.         1.5        1.83333333 2.08333333 2.28333333]
 
 ```
 
