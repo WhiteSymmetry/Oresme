@@ -15,12 +15,26 @@
 Oresme numbers refer to the sums related to the harmonic series.
 
 ---
+### **Türkçe Tanım:**
+**Oresme Sayıları**, 14. yüzyılda Nicole Oresme tarafından incelenen matematiksel serilerdir. Oresme sayıları harmonik seriye ait toplamları ifade eder. İki türü vardır:  
+1. **\( \frac{n}{2^n} \) serisi** (Oresme'nin orijinal çalışması),  
+2. **Harmonik sayılar** (\( H_n = 1 + \frac{1}{2} + \cdots + \frac{1}{n} \)).  
+Bu sayılar, analiz ve sayı teorisinde önemli rol oynar.
 
-## Tanım (Türkçe)
-Oresme sayıları harmonik seriye ait toplamları ifade eder.
+---
 
-## Description (English)
-Oresme numbers refer to the sums related to the harmonic series.
+### **English Definition:**
+**Oresme Numbers** are mathematical series studied by Nicole Oresme in the 14th century. Oresme numbers refer to the sums related to the harmonic series. They include two types:  
+1. The **\( \frac{n}{2^n} \) sequence** (Oresme's original work),  
+2. **Harmonic numbers** (\( H_n = 1 + \frac{1}{2} + \cdots + \frac{1}{n} \)).  
+These numbers play a key role in analysis and number theory.
+
+---
+
+### **Fark/Karşılaştırma (Difference):**
+- **Oresme'nin \( \frac{n}{2^n} \) serisi** ıraksaklık kanıtları için önemlidir.  
+- **Harmonik sayılar** (\( H_n \)) ise logaritmik büyüme gösterir ve \( n \to \infty \) iken ıraksar.  
+- Modern literatürde "Oresme numbers" terimi daha çok tarihsel bağlamda kullanılır.
 
 ---
 
