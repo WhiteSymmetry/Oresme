@@ -21,6 +21,8 @@ identifiers:
     value: 10.5281/zenodo.15833351
   - type: doi
     value: 10.48546/workflowhub.datafile.18.1
+  - type: doi
+    value: 10.6084/m9.figshare.29504708
 repository-code: 'https://github.com/WhiteSymmetry/Oresme'
 url: 'https://github.com/WhiteSymmetry/Oresme'
 repository: 'https://anaconda.org/bilgi/Oresme'
