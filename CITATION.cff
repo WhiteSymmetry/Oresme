@@ -16,9 +16,9 @@ authors:
     orcid: 'https://orcid.org/0000-0001-9937-9839'
 identifiers:
   - type: doi
-    value: 
+    value: 10.5281/zenodo.15833238
   - type: doi
-    value: 
+    value: 10.5281/zenodo.15833351
 repository-code: 'https://github.com/WhiteSymmetry/Oresme'
 url: 'https://github.com/WhiteSymmetry/Oresme'
 repository: 'https://anaconda.org/bilgi/Oresme'
