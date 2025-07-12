@@ -25,8 +25,8 @@ identifiers:
     value: 10.6084/m9.figshare.29504708
 repository-code: 'https://github.com/WhiteSymmetry/Oresme'
 url: 'https://github.com/WhiteSymmetry/Oresme'
-repository: 'https://anaconda.org/bilgi/Oresme'
-repository-artifact: 'https://pypi.org/project/Oresme/'
+repository: 'https://anaconda.org/bilgi/oresme'
+repository-artifact: 'https://pypi.org/project/oresme/'
 abstract: >-
   Oresme numbers refer to the sums related to the harmonic series.
 keywords:
