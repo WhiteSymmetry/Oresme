@@ -6,10 +6,10 @@
 
 [![figshare DOI](https://img.shields.io/badge/DOI-10.6084/m9.figshare.29504708-blue)](https://doi.org/10.6084/m9.figshare.29504708)
 
-[![Anaconda-Server Badge](https://anaconda.org/bilgi/Oresme/badges/version.svg)](https://anaconda.org/bilgi/oresme)
-[![Anaconda-Server Badge](https://anaconda.org/bilgi/Oresme/badges/latest_release_date.svg)](https://anaconda.org/bilgi/oresme)
-[![Anaconda-Server Badge](https://anaconda.org/bilgi/Oresme/badges/platforms.svg)](https://anaconda.org/bilgi/oresme)
-[![Anaconda-Server Badge](https://anaconda.org/bilgi/Oresme/badges/license.svg)](https://anaconda.org/bilgi/oresme)
+[![Anaconda-Server Badge](https://anaconda.org/bilgi/oresme/badges/version.svg)](https://anaconda.org/bilgi/oresme)
+[![Anaconda-Server Badge](https://anaconda.org/bilgi/oresme/badges/latest_release_date.svg)](https://anaconda.org/bilgi/oresme)
+[![Anaconda-Server Badge](https://anaconda.org/bilgi/oresme/badges/platforms.svg)](https://anaconda.org/bilgi/oresme)
+[![Anaconda-Server Badge](https://anaconda.org/bilgi/oresme/badges/license.svg)](https://anaconda.org/bilgi/oresme)
 [![Open Source](https://img.shields.io/badge/Open%20Source-Open%20Source-brightgreen.svg)](https://opensource.org/)
 [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
