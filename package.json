@@ -1,7 +1,7 @@
 {
   "name": "oresme",
   "version": "0.1.0",
-  "description": "Gri Kod 2: Oresme converts binary numbers to Gray Code.",
+  "description": "Oresme numbers refer to the sums related to the harmonic series.",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
