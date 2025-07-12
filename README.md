@@ -6,10 +6,10 @@
 
 [![figshare DOI](https://img.shields.io/badge/DOI-10.6084/m9.figshare.29504708-blue)](https://doi.org/10.6084/m9.figshare.29504708)
 
-[![Anaconda-Server Badge](https://anaconda.org/bilgi/Oresme/badges/version.svg)](https://anaconda.org/bilgi/Oresme)
-[![Anaconda-Server Badge](https://anaconda.org/bilgi/Oresme/badges/latest_release_date.svg)](https://anaconda.org/bilgi/Oresme)
-[![Anaconda-Server Badge](https://anaconda.org/bilgi/Oresme/badges/platforms.svg)](https://anaconda.org/bilgi/Oresme)
-[![Anaconda-Server Badge](https://anaconda.org/bilgi/Oresme/badges/license.svg)](https://anaconda.org/bilgi/Oresme)
+[![Anaconda-Server Badge](https://anaconda.org/bilgi/Oresme/badges/version.svg)](https://anaconda.org/bilgi/oresme)
+[![Anaconda-Server Badge](https://anaconda.org/bilgi/Oresme/badges/latest_release_date.svg)](https://anaconda.org/bilgi/oresme)
+[![Anaconda-Server Badge](https://anaconda.org/bilgi/Oresme/badges/platforms.svg)](https://anaconda.org/bilgi/oresme)
+[![Anaconda-Server Badge](https://anaconda.org/bilgi/Oresme/badges/license.svg)](https://anaconda.org/bilgi/oresme)
 [![Open Source](https://img.shields.io/badge/Open%20Source-Open%20Source-brightgreen.svg)](https://opensource.org/)
 [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -45,23 +45,23 @@ These numbers play a key role in analysis and number theory.
 ### Python ile Kurulum / Install with pip, conda, mamba
 ```bash
 pip install Oresme -U
-python -m pip install -U Oresme
-conda install bilgi::Oresme -y
-mamba install bilgi::Oresme -y
+python -m pip install -U oresme
+conda install bilgi::oresme -y
+mamba install bilgi::oresme -y
 ```
 
 ```diff
-- pip uninstall Oresme -y
-+ pip install -U Oresme
-+ python -m pip install -U Oresme
+- pip uninstall oresme -y
++ pip install -U oresme
++ python -m pip install -U oresme
 ```
 
-[PyPI](https://pypi.org/project/Oresme/)
+[PyPI](https://pypi.org/project/oresme/)
 
 ### Test Kurulumu / Test Installation
 
 ```bash
-pip install -i https://test.pypi.org/simple/ Oresme -U
+pip install -i https://test.pypi.org/simple/ oresme -U
 ```
 
 ### Github Master Kurulumu / GitHub Master Installation
