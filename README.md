@@ -13,6 +13,62 @@
 [![Open Source](https://img.shields.io/badge/Open%20Source-Open%20Source-brightgreen.svg)](https://opensource.org/)
 [![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+[![Anaconda-Server Badge](https://anaconda.org/bilgi/oresmej/badges/version.svg)](https://anaconda.org/bilgi/oresmej)
+[![Anaconda-Server Badge](https://anaconda.org/bilgi/oresmej/badges/latest_release_date.svg)](https://anaconda.org/bilgi/oresmej)
+[![Anaconda-Server Badge](https://anaconda.org/bilgi/oresmej/badges/platforms.svg)](https://anaconda.org/bilgi/oresmej)
+[![Anaconda-Server Badge](https://anaconda.org/bilgi/oresmej/badges/license.svg)](https://anaconda.org/bilgi/oresmej)
+[![Open Source](https://img.shields.io/badge/Open%20Source-Open%20Source-brightgreen.svg)](https://opensource.org/)
+[![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+[![Python CI](https://github.com/WhiteSymmetry/Oresme/actions/workflows/python_ci.yml/badge.svg?branch=main)](https://github.com/WhiteSymmetry/Oresme/actions/workflows/python_ci.yml)
+[![codecov](https://codecov.io/gh/WhiteSymmetry/Oresme/graph/badge.svg?token=???)](https://codecov.io/gh/WhiteSymmetry/Oresme)
+[![Documentation Status](https://readthedocs.org/projects/Oresme/badge/?version=latest)](https://Oresme.readthedocs.io/en/latest/)
+[![Binder](https://terrarium.evidencepub.io/badge_logo.svg)](https://terrarium.evidencepub.io/v2/gh/WhiteSymmetry/Oresme/HEAD)
+[![PyPI version](https://badge.fury.io/py/Oresme.svg)](https://badge.fury.io/py/Oresme)
+[![PyPI Downloads](https://static.pepy.tech/badge/Oresme)](https://pepy.tech/projects/Oresme)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md) 
+
+---
+
+<p align="left">
+    <table>
+        <tr>
+            <td style="text-align: center;">PyPI</td>
+            <td style="text-align: center;">
+                <a href="https://pypi.org/project/Oresme/">
+                    <img src="https://badge.fury.io/py/Oresme.svg" alt="PyPI version" height="18"/>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">Conda</td>
+            <td style="text-align: center;">
+                <a href="https://anaconda.org/bilgi/Oresme">
+                    <img src="https://anaconda.org/bilgi/Oresme/badges/version.svg" alt="conda-forge version" height="18"/>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">DOI</td>
+            <td style="text-align: center;">
+                <a href="https://doi.org/10.5281/zenodo.15833238">
+                    <img src="https://zenodo.org/badge/DOI/10.5281/zenodo.15833238.svg" alt="DOI" height="18"/>
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center;">License: MIT</td>
+            <td style="text-align: center;">
+                <a href="https://opensource.org/licenses/MIT">
+                    <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License" height="18"/>
+                </a>
+            </td>
+        </tr>
+    </table>
+</p>
+
+---
+
 
 Oresme numbers refer to the sums related to the harmonic series.
 
