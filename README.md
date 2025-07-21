@@ -1,10 +1,22 @@
 # Oresme
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15833238.svg)](https://doi.org/10.5281/zenodo.15833238)
+[![Zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15833238.svg)](https://doi.org/10.5281/zenodo.15833238)
 
 [![WorkflowHub DOI](https://img.shields.io/badge/DOI-10.48546/workflowhub.datafile.18.1-blue)](https://doi.org/10.48546/workflowhub.datafile.18.1)
 
 [![figshare DOI](https://img.shields.io/badge/DOI-10.6084/m9.figshare.29504708-blue)](https://doi.org/10.6084/m9.figshare.29504708)
+
+[![SciELO Preprints DOI](https://img.shields.io/badge/DOI-10.1590/SciELOPreprints.12584-blue)](https://doi.org/10.1590/SciELOPreprints.12584)
+
+[![preprints.ru DOI](https://img.shields.io/badge/DOI-10.24108/preprints-3113623-blue)](https://doi.org/10.24108/preprints-3113623)
+
+[![Authorea DOI](https://img.shields.io/badge/DOI-10.22541/au.175199926.64529709/v1-blue)](https://doi.org/10.22541/au.175199926.64529709/v1)
+
+[![Preprints DOI](https://img.shields.io/badge/DOI-10.20944/preprints202507.0781.v1-blue)](https://doi.org/10.20944/preprints202507.0781.v1)
+
+[![OSF DOI](https://img.shields.io/badge/DOI-10.17605/osf.io/68r4v-blue)](https://doi.org/10.17605/osf.io/68r4v)
+
+[![Knowledge Commons DOI](https://img.shields.io/badge/DOI-10.17613/gbdgx-d8y63-blue)](https://doi.org/10.17613/gbdgx-d8y63)
 
 [![Anaconda-Server Badge](https://anaconda.org/bilgi/oresme/badges/version.svg)](https://anaconda.org/bilgi/oresme)
 [![Anaconda-Server Badge](https://anaconda.org/bilgi/oresme/badges/latest_release_date.svg)](https://anaconda.org/bilgi/oresme)
