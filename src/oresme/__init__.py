@@ -7,8 +7,8 @@ from __future__ import annotations  # Gelecekteki özellikler için (Python 3.7+
 import importlib
 import warnings
 import os
-if os.getenv("DEVELOPMENT") == "true":
-    importlib.reload(oresme)
+# if os.getenv("DEVELOPMENT") == "true":
+    # importlib.reload(oresme)
 
 
 # Göreli modül içe aktarmaları
