@@ -37,7 +37,7 @@ def eski_fonksiyon():
 __all__ = ["oresme_sequence", "harmonic_numbers", "harmonic_number", "harmonic_number_approx", "harmonic_generator", "harmonic_numbers_numpy"]
 
 # Paket sürüm numarası
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 # Geliştirme sırasında test etmek için
 if __name__ == "__main__":
