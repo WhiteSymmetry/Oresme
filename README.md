@@ -33,6 +33,7 @@
 [![PyPI version](https://badge.fury.io/py/Oresme.svg)](https://badge.fury.io/py/Oresme)
 [![PyPI Downloads](https://static.pepy.tech/badge/Oresme)](https://pepy.tech/projects/Oresme)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md) 
+[![Linted with Ruff](https://img.shields.io/badge/Linted%20with-Ruff-green?logo=python&logoColor=white)](https://github.com/astral-sh/ruff)
 
 ---
 
