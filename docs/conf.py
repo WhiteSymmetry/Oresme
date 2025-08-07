@@ -14,7 +14,7 @@ master_doc = 'index'
 extensions = [
     'sphinx.ext.autodoc',
     'sphinx.ext.viewcode',
-    'sphinx.ext.napoleon',
+    'sphinx.ext.napoleon'
 ]
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
