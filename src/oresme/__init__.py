@@ -16,7 +16,7 @@ import warnings
 try:
     #from .oresme import *  # gerekirse burada belirli fonksiyonları seçmeli yapmak daha güvenlidir
     #from . import oresme  # Modülün kendisine doğrudan erişim isteniyorsa
-    from .oresme import oresme_sequence, harmonic_numbers, harmonic_number, harmonic_number_approx, harmonic_generator, harmonic_numbers_numpy
+    from .oresme import oresme_sequence, harmonic_numbers, harmonic_number, harmonic_number_approx, harmonic_generator, harmonic_numbers_numpy, is_in_hilbert
 except ImportError as e:
     warnings.warn(f"Gerekli modül yüklenemedi: {e}", ImportWarning)
 
@@ -34,7 +34,7 @@ def eski_fonksiyon():
         stacklevel=2
     )
 
-__all__ = ["oresme_sequence", "harmonic_numbers", "harmonic_number", "harmonic_number_approx", "harmonic_generator", "harmonic_numbers_numpy"]
+__all__ = ["oresme_sequence", "harmonic_numbers", "harmonic_number", "harmonic_number_approx", "harmonic_generator", "harmonic_numbers_numpy", "is_in_hilbert"]
 
 # Paket sürüm numarası
 __version__ = "0.1.1"
