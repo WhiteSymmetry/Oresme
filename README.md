@@ -8,7 +8,7 @@
 
 [![SciELO Preprints DOI](https://img.shields.io/badge/DOI-10.1590/SciELOPreprints.12584-blue)](https://doi.org/10.1590/SciELOPreprints.12584)
 
-[![preprints.ru DOI](https://img.shields.io/badge/DOI-10.24108/preprints-3113623-blue)](https://doi.org/10.24108/preprints-3113623)
+[![preprints.ru DOI](https://img.shields.io/badge/DOI-10.24108/preprints-3113623)](https://doi.org/10.24108/preprints-3113623)
 
 [![Authorea DOI](https://img.shields.io/badge/DOI-10.22541/au.175199926.64529709/v1-blue)](https://doi.org/10.22541/au.175199926.64529709/v1)
 
@@ -16,7 +16,7 @@
 
 [![OSF DOI](https://img.shields.io/badge/DOI-10.17605/osf.io/68r4v-blue)](https://doi.org/10.17605/osf.io/68r4v)
 
-[![Knowledge Commons DOI](https://img.shields.io/badge/DOI-10.17613/gbdgx-d8y63-blue)](https://doi.org/10.17613/gbdgx-d8y63)
+[![Knowledge Commons DOI](https://img.shields.io/badge/DOI-10.17613/gbdgx-d8y63)](https://doi.org/10.17613/gbdgx-d8y63)
 
 
 [![Anaconda-Server Badge](https://anaconda.org/bilgi/oresme/badges/version.svg)](https://anaconda.org/bilgi/oresme)
