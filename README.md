@@ -24,7 +24,7 @@
 [![Anaconda-Server Badge](https://anaconda.org/bilgi/oresme/badges/platforms.svg)](https://anaconda.org/bilgi/oresme)
 [![Anaconda-Server Badge](https://anaconda.org/bilgi/oresme/badges/license.svg)](https://anaconda.org/bilgi/oresme)
 [![Open Source](https://img.shields.io/badge/Open%20Source-Open%20Source-brightgreen.svg)](https://opensource.org/)
-[![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![AGPL-3.0 license](https://img.shields.io/badge/License-AGPL-yellow.svg)](https://opensource.org/licenses/AGPL)
 
 [![Python CI](https://github.com/WhiteSymmetry/Oresme/actions/workflows/python_ci.yml/badge.svg?branch=main)](https://github.com/WhiteSymmetry/Oresme/actions/workflows/python_ci.yml)
 [![codecov](https://codecov.io/gh/WhiteSymmetry/Oresme/graph/badge.svg?token=04SY6XPZAQ)](https://codecov.io/gh/WhiteSymmetry/Oresme)
