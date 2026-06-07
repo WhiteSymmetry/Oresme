@@ -26,7 +26,7 @@ requirements:
 
 about:
   home: https://github.com/WhiteSymmetry/Oresme
-  license: MIT
+  license: GPL-3.0-or-later
   summary: 'Oresme numbers refer to the sums related to the harmonic series.'
   description: |
     Oresme numbers refer to the sums related to the harmonic series.
