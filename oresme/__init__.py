@@ -3,14 +3,24 @@
 Oresme, Harmonic Series and Hilbert Space Module
 Oresme, Harmonik Seri ve Hilbert Uzayı Modülü
 
-This module provides (without Numba/JAX):
+This package provides three computation backends:
+- Pure Python + NumPy (default)
+- Numba-accelerated (oresme.numba)
+- JAX-accelerated (oresme.jax)
+
+All backends expose the same mathematical tools:
 - Harmonic number calculations (exact fractions and floating point)
 - Oresme sequence (n / 2^n) generation
 - Hilbert space (ℓ²) membership tests (mathematically sound)
 - Sequence analysis and comparison utilities
 - Approximation methods and convergence analysis
 
-Bu modül (Numba/JAX olmadan) şunları sağlar:
+Bu paket üç hesaplama arka ucu sunar:
+- Saf Python + NumPy (varsayılan)
+- Numba hızlandırmalı (oresme.numba)
+- JAX hızlandırmalı (oresme.jax)
+
+Tüm arka uçlar aynı matematiksel araçları sağlar:
 - Harmonik sayı hesaplamaları (kesirli tam sonuçlar ve kayan noktalı)
 - Oresme dizisi (n / 2^n) üretimi
 - ℓ² (Hilbert uzayı) aidiyet testleri (matematiksel olarak doğru)
@@ -18,42 +28,130 @@ Bu modül (Numba/JAX olmadan) şunları sağlar:
 - Yaklaştırım yöntemleri ve yakınsama analizi
 """
 
-from __future__ import annotations  # Gelecekteki özellikler için (Python 3.7+)
 import importlib
-import os
 import warnings
 
-# Paket sürüm numarası
-__version__ = "0.1.4"
+__version__ = "0.1.5"
 
-# if os.getenv("DEVELOPMENT") == "true":
-    # importlib.reload(oresme)
+# ----------------------------------------------------------------------
+# Default backend: pure Python + NumPy (always available)
+# ----------------------------------------------------------------------
+from .oresme import (
+    # Core
+    oresme_sequence,
+    harmonic_numbers,
+    harmonic_number,
+    harmonic_numbers_numpy,
+    harmonic_generator,
+    # Approximation
+    EULER_MASCHERONI,
+    EULER_MASCHERONI_FRACTION,
+    ApproximationMethod,
+    harmonic_number_approx,
+    bernoulli_number,
+    harmonic_sum_approx,
+    # Hilbert test
+    is_in_hilbert,
+    # Utilities
+    harmonic_sequence,
+    p_series,
+    geometric_sequence,
+    analyze_sequence,
+    compare_sequences,
+    # Performance & analysis
+    benchmark_harmonic,
+    compare_with_approximation,
+    harmonic_convergence_analysis,
+    plot_comparative_performance,
+)
 
-# Göreli modül içe aktarmaları
-# F401 hatasını önlemek için sadece kullanacağınız şeyleri dışa aktarın
-# Aksi halde linter'lar "imported but unused" uyarısı verir
+# ----------------------------------------------------------------------
+# Optional Numba backend (oresme.numba)
+# ----------------------------------------------------------------------
 try:
-    #from .oresme import *  # gerekirse burada belirli fonksiyonları seçmeli yapmak daha güvenlidir
-    #from . import oresme  # Modülün kendisine doğrudan erişim isteniyorsa
-    from .oresme import oresme_sequence, harmonic_numbers, harmonic_number, harmonic_number_approx, harmonic_generator, harmonic_numbers_numpy, is_in_hilbert
-except ImportError as e:
-    warnings.warn(f"Gerekli modül yüklenemedi: {e}", ImportWarning)
+    from . import oresmen as _numba_module
+    # Attach as a submodule so users can do: oresme.numba.harmonic_number_numba(...)
+    import sys
+    sys.modules[__name__ + '.numba'] = _numba_module
+except ImportError:
+    _numba_module = None
+    warnings.warn("Numba backend not available. Install numba for acceleration.", ImportWarning)
 
-# Eski bir fonksiyonun yer tutucusu - gelecekte kaldırılacak
-def eski_fonksiyon():
+# ----------------------------------------------------------------------
+# Optional JAX backend (oresme.jax)
+# ----------------------------------------------------------------------
+try:
+    from . import oresmej as _jax_module
+    import sys
+    sys.modules[__name__ + '.jax'] = _jax_module
+except ImportError:
+    _jax_module = None
+    warnings.warn("JAX backend not available. Install jax for acceleration.", ImportWarning)
+
+# ----------------------------------------------------------------------
+# Public API
+# ----------------------------------------------------------------------
+__all__ = [
+    # Core
+    'oresme_sequence',
+    'harmonic_numbers',
+    'harmonic_number',
+    'harmonic_numbers_numpy',
+    'harmonic_generator',
+    # Constants & Enums
+    'EULER_MASCHERONI',
+    'EULER_MASCHERONI_FRACTION',
+    'ApproximationMethod',
+    # Approximation
+    'harmonic_number_approx',
+    'bernoulli_number',
+    'harmonic_sum_approx',
+    # Hilbert test
+    'is_in_hilbert',
+    # Utility sequences
+    'harmonic_sequence',
+    'p_series',
+    'geometric_sequence',
+    # Analysis
+    'analyze_sequence',
+    'compare_sequences',
+    # Performance
+    'benchmark_harmonic',
+    'compare_with_approximation',
+    'harmonic_convergence_analysis',
+    'plot_comparative_performance',
+    # Optional submodules
+    'numba',
+    'jax',
+]
+
+
+def get_backend(name: str):
     """
-    Kaldırılması planlanan eski bir fonksiyondur.
-    Lütfen alternatif fonksiyonları kullanın.
+    Return the requested backend module.
+    İstenen arka uç modülünü döndürür.
+
+    Parameters
+    ----------
+    name : str
+        One of 'pure', 'numba', 'jax'.
+    Returns
+    -------
+    module
+    Raises
+    ------
+    ValueError if backend is unknown or not installed.
     """
-    warnings.warn(
-        "eski_fonksiyon() artık kullanılmamaktadır ve gelecekte kaldırılacaktır. "
-        "Lütfen yeni alternatif fonksiyonları kullanın. "
-        category=DeprecationWarning,
-        stacklevel=2
-    )
-
-__all__ = ["oresme_sequence", "harmonic_numbers", "harmonic_number", "harmonic_number_approx", "harmonic_generator", "harmonic_numbers_numpy", "is_in_hilbert"]
-
-# Geliştirme sırasında test etmek için
-if __name__ == "__main__":
-    eski_fonksiyon()
+    name = name.lower()
+    if name in ('pure', 'default'):
+        return importlib.import_module('.oresme', __package__)
+    elif name == 'numba':
+        if _numba_module is None:
+            raise ImportError("Numba backend is not installed.")
+        return _numba_module
+    elif name == 'jax':
+        if _jax_module is None:
+            raise ImportError("JAX backend is not installed.")
+        return _jax_module
+    else:
+        raise ValueError(f"Unknown backend: {name}. Choose 'pure', 'numba', or 'jax'.")
