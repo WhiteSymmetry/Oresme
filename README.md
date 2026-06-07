@@ -271,5 +271,5 @@ Keçeci, Mehmet. Oresme. Open Science Articles (OSAs), Zenodo, 2025. https://doi
 ### Lisans (Türkçe) / License (English)
 
 ```
-This project is licensed under the MIT License.
+This project is licensed under the GPL-3.0-or-later License.
 ```
