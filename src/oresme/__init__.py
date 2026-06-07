@@ -1,11 +1,30 @@
 # __init__.py
-# Bu dosya paketin başlangıç noktası olarak çalışır.
-# Alt modülleri yükler, sürüm bilgileri tanımlar ve geriye dönük uyumluluk için uyarılar sağlar.
+"""
+Oresme, Harmonic Series and Hilbert Space Module
+Oresme, Harmonik Seri ve Hilbert Uzayı Modülü
+
+This module provides (without Numba/JAX):
+- Harmonic number calculations (exact fractions and floating point)
+- Oresme sequence (n / 2^n) generation
+- Hilbert space (ℓ²) membership tests (mathematically sound)
+- Sequence analysis and comparison utilities
+- Approximation methods and convergence analysis
+
+Bu modül (Numba/JAX olmadan) şunları sağlar:
+- Harmonik sayı hesaplamaları (kesirli tam sonuçlar ve kayan noktalı)
+- Oresme dizisi (n / 2^n) üretimi
+- ℓ² (Hilbert uzayı) aidiyet testleri (matematiksel olarak doğru)
+- Dizi analizi ve karşılaştırma yardımcıları
+- Yaklaştırım yöntemleri ve yakınsama analizi
+"""
 
 from __future__ import annotations  # Gelecekteki özellikler için (Python 3.7+)
 import importlib
 import os
 import warnings
+
+# Paket sürüm numarası
+__version__ = "0.1.3"
 
 # if os.getenv("DEVELOPMENT") == "true":
     # importlib.reload(oresme)
@@ -35,9 +54,6 @@ def eski_fonksiyon():
     )
 
 __all__ = ["oresme_sequence", "harmonic_numbers", "harmonic_number", "harmonic_number_approx", "harmonic_generator", "harmonic_numbers_numpy", "is_in_hilbert"]
-
-# Paket sürüm numarası
-__version__ = "0.1.2"
 
 # Geliştirme sırasında test etmek için
 if __name__ == "__main__":
