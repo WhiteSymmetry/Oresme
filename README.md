@@ -1,6 +1,6 @@
 # Oresme
 
-## Keçeci Curve (kececicurve, Keçeci Eğrisi) <img src="https://github.com/WhiteSymmetry/Oresme/blob/main/docs/oresme-logo.jpg" alt="Oresme" align="right" height="140"/>
+## Oresme <img src="https://github.com/WhiteSymmetry/Oresme/blob/main/docs/oresme-logo.jpg" alt="Oresme" align="right" height="140"/>
 
 [![Zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15833238.svg)](https://doi.org/10.5281/zenodo.15833238)
 
