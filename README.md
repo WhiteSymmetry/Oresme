@@ -191,13 +191,19 @@ H_1 = 1.0
 H_2 = 1.5
 H_3 = 1.8333333333333333
 [1.         1.5        1.83333333 2.08333333 2.28333333]
-
 ```
 
 ```python
 import oresme
 oresme.__version__
 ```
+
+```python
+from oresme.oresme import _run_tests, main
+_run_tests()
+main()
+```
+
 ---
 
 ### Development
