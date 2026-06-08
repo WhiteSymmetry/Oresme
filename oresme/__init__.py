@@ -31,7 +31,7 @@ Tüm arka uçlar aynı matematiksel araçları sağlar:
 import importlib
 import warnings
 
-__version__ = "0.1.5"
+__version__ = "0.1.6"
 
 # ----------------------------------------------------------------------
 # Default backend: pure Python + NumPy (always available)
@@ -63,6 +63,8 @@ from .oresme import (
     compare_with_approximation,
     harmonic_convergence_analysis,
     plot_comparative_performance,
+    _run_tests,
+    main,
 )
 
 # ----------------------------------------------------------------------
@@ -123,6 +125,9 @@ __all__ = [
     # Optional submodules
     'numba',
     'jax',
+    # test
+    '_run_tests',
+    'main',
 ]
 
 
