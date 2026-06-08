@@ -482,6 +482,124 @@ def plot_comparative_performance(max_n=50000, step=5000, runs=10):
     plt.tight_layout()
     plt.show()
 
+def _run_tests(verbose: bool = True) -> bool:
+    """
+    Dahili test fonksiyonu. Tüm alt fonksiyonları çağırarak temel doğrulamaları yapar.
+    Başarı durumunda True döner.
+    """
+    import traceback
+    tests_passed = 0
+    tests_failed = 0
+
+    def check(condition, msg):
+        nonlocal tests_passed, tests_failed
+        if condition:
+            tests_passed += 1
+            if verbose:
+                print(f"  ✓ {msg}")
+        else:
+            tests_failed += 1
+            if verbose:
+                print(f"  ✗ {msg}")
+
+    print("Oresme (Pure) Module Tests / Modül Testleri")
+    print("=" * 60)
+
+    # 1. Oresme sequence
+    seq = oresme_sequence(5)
+    check(len(seq) == 5, "oresme_sequence(5) length")
+    check(abs(seq[0] - 0.5) < 1e-9, "oresme_sequence first term")
+    check(abs(seq[4] - 5/32) < 1e-9, "oresme_sequence 5th term")
+
+    # 2. Fractional harmonic numbers
+    h_frac = harmonic_numbers(5)
+    check(len(h_frac) == 5, "harmonic_numbers(5) length")
+    check(h_frac[0] == Fraction(1,1), "H1 = 1")
+    check(h_frac[4] == Fraction(137, 60), "H5 = 137/60")
+
+    # 3. Float harmonic number
+    h5 = harmonic_number(5)
+    check(abs(h5 - 2.283333333333333) < 1e-6, "harmonic_number(5)")
+
+    # 4. NumPy harmonic numbers
+    h_arr = harmonic_numbers_numpy(5)
+    check(len(h_arr) == 5, "harmonic_numbers_numpy(5) length")
+    check(abs(h_arr[4] - 2.283333333333333) < 1e-6, "NumPy H5 value")
+
+    # 5. Generator
+    gen_vals = list(harmonic_generator(5))
+    check(len(gen_vals) == 5, "harmonic_generator(5) length")
+    check(abs(gen_vals[4] - 2.283333333333333) < 1e-6, "Generator H5 value")
+
+    # 6. Approximations
+    h100_exact = harmonic_number(100)
+    h100_approx = harmonic_number_approx(100)
+    err = abs(h100_exact - h100_approx) / h100_exact
+    check(err < 1e-4, f"Euler-Mascheroni approx error < 1e-4 (actual {err:.2e})")
+
+    h100_mac = harmonic_number_approx(100, method=ApproximationMethod.EULER_MACLAURIN, k=4)
+    err_mac = abs(h100_exact - h100_mac) / h100_exact
+    check(err_mac < 1e-6, f"Euler-Maclaurin(4) error < 1e-6 (actual {err_mac:.2e})")
+
+    # 7. Vectorized approx
+    n_vals = np.array([10, 100, 1000])
+    approx_vec = harmonic_sum_approx(n_vals)
+    check(len(approx_vec) == 3, "harmonic_sum_approx vector length")
+    check(abs(approx_vec[1] - h100_exact) / h100_exact < 1e-4, "Vector approx H100 error")
+
+    # 8. Bernoulli numbers
+    B2 = bernoulli_number(2)
+    check(abs(B2 - 1/6) < 1e-9, "B2 = 1/6")
+
+    # 9. Hilbert space tests
+    # 1/n → ℓ²
+    seq_1n = 1 / np.arange(1, 1000)
+    check(is_in_hilbert(seq_1n) == True, "1/n in ℓ² (True)")
+    # 1/√n → ℓ² değil
+    seq_slow = 1 / np.sqrt(np.arange(1, 1000))
+    check(is_in_hilbert(seq_slow) == False, "1/√n not in ℓ² (False)")
+    # n/2^n → ℓ²
+    seq_oresme = np.array([i / (2**i) for i in range(1, 500)])
+    check(is_in_hilbert(seq_oresme) == True, "n/2^n in ℓ² (True)")
+    # constant 1 → not in ℓ²
+    check(is_in_hilbert(np.ones(1000)) == False, "Constant 1 not in ℓ² (False)")
+
+    # 10. Sequence generators
+    hseq = harmonic_sequence(5)
+    check(len(hseq) == 5 and abs(hseq[4] - 0.2) < 1e-9, "harmonic_sequence(5)")
+    pseq = p_series(2, 5)
+    check(len(pseq) == 5 and abs(pseq[4] - 1/25) < 1e-9, "p_series(2,5)")
+    gseq = geometric_sequence(0.5, 5)
+    check(len(gseq) == 5 and abs(gseq[4] - 0.5**5) < 1e-9, "geometric_sequence(0.5,5)")
+
+    # 11. Analysis and comparison (print kontrolü zor, sadece hata vermediğini kontrol)
+    try:
+        analysis = analyze_sequence(seq_oresme, name="Oresme")
+        check(isinstance(analysis, dict), "analyze_sequence returns dict")
+        compare_sequences({"1/n": seq_1n, "n/2ⁿ": seq_oresme}, n_test=500)
+    except Exception as e:
+        check(False, f"Analysis/comparison raised {e}")
+
+    # 12. Convergence analysis
+    try:
+        conv = harmonic_convergence_analysis(np.array([10, 100, 1000]))
+        check('exact_sums' in conv, "harmonic_convergence_analysis keys")
+    except Exception as e:
+        check(False, f"Convergence analysis raised {e}")
+
+    # 13. Benchmark (hız testi değil, en azından çalıştığına bak)
+    try:
+        bench = benchmark_harmonic({
+            "python": lambda n: harmonic_number(n),
+            "numpy": lambda n: harmonic_numbers_numpy(n)
+        }, n=100, runs=3)
+        check("python" in bench, "benchmark_harmonic keys")
+    except Exception as e:
+        check(False, f"Benchmark raised {e}")
+
+    print("-" * 60)
+    print(f"Tests: {tests_passed} passed, {tests_failed} failed / {tests_passed} başarılı, {tests_failed} başarısız")
+    return tests_failed == 0
 
 # -----------------------------
 # Main Program / Ana Program
