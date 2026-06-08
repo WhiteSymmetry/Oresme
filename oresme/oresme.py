@@ -24,11 +24,8 @@ import logging
 from enum import Enum, auto
 from functools import lru_cache
 from fractions import Fraction
-from typing import List, Union, Generator, Tuple, Optional
-
 import numpy as np
-
-__version__ = "0.1.6"
+from typing import List, Union, Generator, Tuple, Optional
 
 # -----------------------------
 # Logging Configuration / Loglama Yapılandırması
