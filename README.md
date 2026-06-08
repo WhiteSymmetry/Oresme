@@ -1,5 +1,7 @@
 # Oresme
 
+## Keçeci Curve (kececicurve, Keçeci Eğrisi) <img src="https://github.com/WhiteSymmetry/Oresme/blob/main/docs/oresme-logo.jpg" alt="Oresme" align="right" height="140"/>
+
 [![Zenodo DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.15833238.svg)](https://doi.org/10.5281/zenodo.15833238)
 
 [![WorkflowHub DOI](https://img.shields.io/badge/DOI-10.48546/workflowhub.datafile.18.1-blue)](https://doi.org/10.48546/workflowhub.datafile.18.1)
