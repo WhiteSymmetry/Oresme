@@ -372,28 +372,20 @@ def compare_sequences(sequences: dict, n_test: int = 5000) -> None:
 # -----------------------------
 # Performance Analysis / Performans Analizi
 # -----------------------------
-def benchmark_harmonic(n: int, runs: int = 10) -> dict:
-    """Compare different computation methods / Farklı hesaplama yöntemlerini karşılaştırır"""
+def benchmark_harmonic(compute_funcs: Dict[str, callable], n: int, runs: int = 10) -> dict:
+    """Benchmark given compute functions."""
     results = {}
-
-    # Pure Python
-    start = time.perf_counter()
-    for _ in range(runs):
-        _ = harmonic_number(n)
-    results['pure_python'] = (time.perf_counter() - start) / runs
-
-    # NumPy vectorized
-    start = time.perf_counter()
-    for _ in range(runs):
-        _ = harmonic_numbers_numpy(n)
-    results['numpy'] = (time.perf_counter() - start) / runs
-
-    # Approximation
-    start = time.perf_counter()
-    for _ in range(runs):
-        _ = harmonic_number_approx(n)
-    results['approximate'] = (time.perf_counter() - start) / runs
-
+    for name, func in compute_funcs.items():
+        # warm-up if callable has attribute block_until_ready (JAX)
+        try:
+            func(10).block_until_ready()
+        except Exception:
+            pass
+        start = time.perf_counter()
+        for _ in range(runs):
+            func(n)
+        elapsed = time.perf_counter() - start
+        results[name] = elapsed / runs
     return results
 
 
@@ -484,7 +476,6 @@ def _run_tests(verbose: bool = True) -> bool:
     Dahili test fonksiyonu. Tüm alt fonksiyonları çağırarak temel doğrulamaları yapar.
     Başarı durumunda True döner.
     """
-    import traceback
     tests_passed = 0
     tests_failed = 0
 
@@ -549,16 +540,12 @@ def _run_tests(verbose: bool = True) -> bool:
     check(abs(B2 - 1/6) < 1e-9, "B2 = 1/6")
 
     # 9. Hilbert space tests
-    # 1/n → ℓ²
     seq_1n = 1 / np.arange(1, 1000)
     check(is_in_hilbert(seq_1n) == True, "1/n in ℓ² (True)")
-    # 1/√n → ℓ² değil
     seq_slow = 1 / np.sqrt(np.arange(1, 1000))
     check(is_in_hilbert(seq_slow) == False, "1/√n not in ℓ² (False)")
-    # n/2^n → ℓ²
     seq_oresme = np.array([i / (2**i) for i in range(1, 500)])
     check(is_in_hilbert(seq_oresme) == True, "n/2^n in ℓ² (True)")
-    # constant 1 → not in ℓ²
     check(is_in_hilbert(np.ones(1000)) == False, "Constant 1 not in ℓ² (False)")
 
     # 10. Sequence generators
@@ -569,7 +556,7 @@ def _run_tests(verbose: bool = True) -> bool:
     gseq = geometric_sequence(0.5, 5)
     check(len(gseq) == 5 and abs(gseq[4] - 0.5**5) < 1e-9, "geometric_sequence(0.5,5)")
 
-    # 11. Analysis and comparison (print kontrolü zor, sadece hata vermediğini kontrol)
+    # 11. Analysis and comparison
     try:
         analysis = analyze_sequence(seq_oresme, name="Oresme")
         check(isinstance(analysis, dict), "analyze_sequence returns dict")
@@ -584,7 +571,7 @@ def _run_tests(verbose: bool = True) -> bool:
     except Exception as e:
         check(False, f"Convergence analysis raised {e}")
 
-    # 13. Benchmark (hız testi değil, en azından çalıştığına bak)
+    # 13. Benchmark
     try:
         bench = benchmark_harmonic({
             "python": lambda n: harmonic_number(n),
@@ -598,38 +585,24 @@ def _run_tests(verbose: bool = True) -> bool:
     print(f"Tests: {tests_passed} passed, {tests_failed} failed / {tests_passed} başarılı, {tests_failed} başarısız")
     return tests_failed == 0
 
-# -----------------------------
-# Main Program / Ana Program
-# -----------------------------
+
 def main():
-    """Main test routine / Ana test rutini"""
-    logger.info("=" * 70)
-    logger.info(" ORESME MODULE TEST (PURE PYTHON/NUMPY) / ORESME MODÜL TESTİ (SAF PYTHON/NUMPY)")
-    logger.info("=" * 70)
-
-    logger.info("Oresme sequence (first 5) / Oresme dizisi (ilk 5): %s", oresme_sequence(5))
-    logger.info("Fractional harmonic numbers H1-H3 / Kesirli harmonik sayılar H1-H3: %s", harmonic_numbers(3))
-    logger.info("5th harmonic number / 5. harmonik sayı: %.4f", harmonic_number(5))
-    logger.info("NumPy harmonic numbers H1-H5 / NumPy harmonik sayılar H1-H5: %s", harmonic_numbers_numpy(5))
-
-    logger.info("-" * 50)
-    logger.info("ℓ² (Hilbert space) membership tests / ℓ² (Hilbert uzayı) aidiyet testleri:")
-    n_test = 10000
-    harmonic_seq = 1 / np.arange(1, n_test + 1)
-    logger.info("  1/n in ℓ²? / 1/n ℓ²'de mi? %s", is_in_hilbert(harmonic_seq))
-    slow_seq = 1 / np.sqrt(np.arange(1, n_test + 1))
-    logger.info("  1/√n in ℓ²? / 1/√n ℓ²'de mi? %s", is_in_hilbert(slow_seq))
-    oresme_seq = np.array([i / (2 ** i) for i in range(1, n_test + 1)])
-    logger.info("  n/2ⁿ in ℓ²? / n/2ⁿ ℓ²'de mi? %s", is_in_hilbert(oresme_seq))
-
-    n_perf = 100000
-    logger.info("-" * 50)
-    logger.info("Performance test (n=%d) / Performans testi (n=%d):", n_perf, n_perf)
-    bench = benchmark_harmonic(n_perf)
-    for method, t in bench.items():
-        logger.info("%15s: %.6f s/run", method, t)
-
-    logger.info("=" * 70)
+    """Ana test rutini (hem görsel çıktı hem de sessiz test)."""
+    import sys
+    if "--test" in sys.argv:
+        success = _run_tests(verbose=True)
+        sys.exit(0 if success else 1)
+    else:
+        logger.info("=" * 70)
+        logger.info(" ORESME MODULE DEMO (PURE PYTHON/NUMPY)")
+        logger.info("=" * 70)
+        logger.info("Oresme sequence (first 5): %s", oresme_sequence(5))
+        logger.info("Fractional harmonic numbers H1-H3: %s", harmonic_numbers(3))
+        logger.info("5th harmonic number: %.6f", harmonic_number(5))
+        logger.info("NumPy harmonic numbers H1-H5: %s", harmonic_numbers_numpy(5))
+        logger.info("Approximation of H_100: %.6f", harmonic_number_approx(100))
+        logger.info("Hilbert test for 1/n: %s", is_in_hilbert(harmonic_sequence(500)))
+        logger.info("=" * 70)
 
 
 if __name__ == "__main__":
