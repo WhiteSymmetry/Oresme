@@ -281,3 +281,65 @@ Keçeci, Mehmet. Oresme. Open Science Articles (OSAs), Zenodo, 2025. https://doi
 ```
 This project is licensed under the GPL-3.0-or-later License.
 ```
+
+### Pixi:
+
+[![Pixi](https://img.shields.io/badge/Pixi-Pixi-brightgreen.svg)](https://prefix.dev/channels/bilgi)
+
+pixi init oresme
+
+cd oresme
+
+pixi workspace channel add [https://prefix.dev/channels/bilgi](https://prefix.dev/channels/bilgi) --prepend
+
+✔ Added https://prefix.dev/channels/bilgi
+
+pixi add oresme
+
+✔ Added oresme >=...,<1
+
+pixi install
+
+pixi shell
+
+pixi run python -c "import oresme; print(oresme.__version__)"
+
+### Çıktı: 
+
+pixi remove oresme
+
+conda install -c https://prefix.dev/channels/bilgi oresme
+
+pixi run python -c "import oresme; print(oresme.__version__)"
+
+### Çıktı: 
+
+pixi run pip list | grep oresme
+
+### oresme  
+
+pixi run pip show oresme
+
+Name: oresme
+
+Version: 
+
+Summary: 
+
+Home-page: https://github.com/WhiteSymmetry/oresme
+
+Author: Mehmet Keçeci
+
+Author-email: Mehmet Keçeci <...>
+
+License: GNU AFFERO GENERAL PUBLIC LICENSE
+
+Copyright (c) 2025-2026 Mehmet Keçeci
+
+----
+
+1. https://pypi.org/project/oresme/
+2. https://anaconda.org/bilgi/oresme
+3. https://prefix.dev/channels/bilgi/packages/oresme
+
+---
