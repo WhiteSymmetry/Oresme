@@ -31,7 +31,7 @@ Tüm arka uçlar aynı matematiksel araçları sağlar:
 import importlib
 import warnings
 
-__version__ = "0.1.7"
+__version__ = "0.1.8"
 
 # ----------------------------------------------------------------------
 # Default backend: pure Python + NumPy (always available)
