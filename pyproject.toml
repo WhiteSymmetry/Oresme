@@ -6,9 +6,9 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "oresme"
-version = "0.1.6"
+version = "0.1.7"
 dynamic = ["keywords", "maintainers"]
-license = "GPL-3.0-or-later"  # SPDX ID
+license = "AGPL-3.0-or-later"  # SPDX ID
 authors = [
   { name="Mehmet Keçeci", email="mkececi@yaani.com" },
 ]
@@ -23,10 +23,10 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Visualization",
 ]
 
-dependencies = ["numpy", "matplotlib", "jax"]
+dependencies = ["numpy", "matplotlib"]
 
 [project.optional-dependencies]
-test = ["pytest", "pytest-cov", "pytest-mock", "ruff", "numpy", "matplotlib","jax"]
+test = ["pytest", "pytest-cov", "pytest-mock", "ruff", "numpy", "matplotlib"]
 
 [tool.setuptools.packages.find]
 where = ["."]
