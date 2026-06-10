@@ -65,6 +65,7 @@ from .oresme import (
     plot_comparative_performance,
     _run_tests,
     main,
+    compare_benchmarks,
 )
 
 # ----------------------------------------------------------------------
@@ -128,6 +129,7 @@ __all__ = [
     # test
     '_run_tests',
     'main',
+    'compare_benchmarks',
 ]
 
 
