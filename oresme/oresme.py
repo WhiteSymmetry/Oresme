@@ -25,7 +25,7 @@ from enum import Enum, auto
 from functools import lru_cache
 from fractions import Fraction
 import numpy as np
-from typing import List, Union, Generator, Tuple, Optional
+from typing import Any, Dict, List, Union, Generator, Tuple, Optional
 
 import oresmen
 import oresmej
