@@ -5,19 +5,18 @@ schema_version: 1
 # this sets up "context variables" (in this case name and version) that
 # can later be used in Jinja expressions
 context:
-  version: 0.1.9
+  version: 0.2.0
   name: oresme
 
 # top level package information (name and version)
 package:
   name: oresme
-  version: 0.1.9
+  version: 0.2.0
 
 # location to get the source from
 #`source` are `url`, `sha256`, `md5`, `patches`, `file_name` and `target_directory`
 source:
-  url: 
-  sha256: 
+  path: .
 
 # build number (should be incremented if a new build is made, but version is not incrementing)
 build:
