@@ -1,1 +1,6 @@
-
+numpy
+matplotlib
+oresmen
+numba
+oresmej
+jax
