@@ -5,18 +5,19 @@ schema_version: 1
 # this sets up "context variables" (in this case name and version) that
 # can later be used in Jinja expressions
 context:
-  version: 0.2.0
+  version: 0.2.1
   name: oresme
 
 # top level package information (name and version)
 package:
   name: oresme
-  version: 0.2.0
+  version: 0.2.1
 
 # location to get the source from
 #`source` are `url`, `sha256`, `md5`, `patches`, `file_name` and `target_directory`
 source:
-  path: .
+  url: https://pypi.org{{ name }}/${{ name }}/${{ name }}-${{ version }}.tar.gz
+  sha256: 
 
 # build number (should be incremented if a new build is made, but version is not incrementing)
 build:
