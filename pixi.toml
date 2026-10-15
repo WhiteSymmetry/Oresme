@@ -1,13 +1,13 @@
 [workspace]
 name = "oresme"
-version = "0.2.0"
+version = "0.2.1"
 preview = ["pixi-build"]
 channels = ["https://prefix.dev/bilgi", "pypi", "https://prefix.dev/conda-forge", "https://conda.modular.com/max-nightly", "conda-forge", "https://repo.prefix.dev/modular-community"]
 platforms = ["linux-64", "win-64", "osx-64"]
 
 [package]
 name = "oresme"
-version = "0.2.0"
+version = "0.2.1"
 license = "AGPL-3.0-or-later"
 
 [dependencies]
@@ -19,7 +19,7 @@ setuptools = ">=82.0.1"
 wheel = ">=0.45.1"
 setuptools_scm = ">=9.2.2"
 rattler-build = ">=0.76.0"
-oresme = ">=0.2.0,<0.3"
+pytest = "*"
 
 [tasks]
 build = "python -m build"
